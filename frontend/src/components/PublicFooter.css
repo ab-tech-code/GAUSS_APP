@@ -1,0 +1,82 @@
+/* src/components/PublicFooter.css */
+
+.public-footer {
+  background: #000000;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.pf-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pf-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+}
+
+.pf-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.pf-desc {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.pf-stores {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pf-store-icon {
+  width: 130px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pf-store-icon:hover {
+  opacity: 0.8;
+}
+
+.pf-heading {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.pf-link {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pf-link:hover {
+  color: #ff4d4f;
+}
+
+.pf-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .pf-col {
+    width: 100%;
+  }
+}

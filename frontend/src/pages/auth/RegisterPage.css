@@ -1,0 +1,106 @@
+/* src/pages/auth/RegisterPage.css */
+
+.register-root {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(2,6,23,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reg-logo {
+  width: 72px;
+  margin: 0 auto;
+}
+
+.reg-sub {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.reg-btn {
+  margin-top: 6px;
+  padding: 12px;
+  background: #ff4d4f;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.reg-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.field-error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* success message */
+.reg-success {
+  background: #e6ffef;
+  padding: 12px;
+  border-radius: 10px;
+  color: #065f46;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* small note */
+.reg-note {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .register-card {
+    padding: 20px;
+  }
+}

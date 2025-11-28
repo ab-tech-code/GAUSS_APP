@@ -1,0 +1,32 @@
+// src/index.js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { AuthProvider } from "./contexts/AuthContext";
+
+import "./styles/global.css";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+// register service worker for FCM
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", async () => {
+    try {
+      await navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      console.log("Service Worker registered for FCM");
+    } catch (err) {
+      console.warn("Service Worker registration failed:", err);
+    }
+  });
+}

@@ -1,0 +1,81 @@
+/* src/components/PublicHeader.css */
+
+.public-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 10px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.ph-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ph-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.ph-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.ph-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ph-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ph-link {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  position: relative;
+}
+
+.ph-link.active {
+  color: #ff4d4f;
+  font-weight: 700;
+}
+
+.ph-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ph-login {
+  border: 2px solid #111827;
+  color: #111827;
+}
+
+.ph-register {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .ph-nav {
+    display: none; 
+  }
+}

@@ -1,0 +1,58 @@
+/* About Page */
+
+.about-page {
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.about-hero {
+  background: #ff4d4f;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.about-hero p {
+  max-width: 700px;
+  margin: 10px auto 0;
+  line-height: 1.6;
+}
+
+.about-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.about-section h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.about-section p,
+.about-section li {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 26px;
+  }
+
+  .about-section h2 {
+    font-size: 22px;
+  }
+}
