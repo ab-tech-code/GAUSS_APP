@@ -1,12 +1,14 @@
 // src/App.js
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { useAuth } from "./contexts/AuthContext";
 
 // PUBLIC COMPONENTS
 import PublicHeader from "./components/PublicHeader";
 import PublicFooter from "./components/PublicFooter";
+import ScrollToTop from './components/ScrollToTop';
+
 
 // PUBLIC PAGES
 import HomePage from "./pages/public/HomePage";
@@ -36,7 +38,26 @@ import AnalyticsPage from "./pages/analytics/AnalyticsPage";
 import SettingsPage from "./pages/settings/SettingsPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 
+// Admin
+import AdminLayout from "./layouts/AdminLayout";
+import AdminDashboardPage from "./pages/admin/AdminDashboard";
+import VendorApprovalsPage from "./pages/admin/VendorApprovalsPage";
+import RiderApprovalsPage from "./pages/admin/RiderApprovalsPage";
+
+
+const AdminProtectedRoute = ({ children }) => {
+  const { vendor, loading } = useAuth();
+  if (loading) return <div>Loading...</div>;
+  // Accept vendor.role === 'admin' OR vendor.is_admin truthy
+  if (!vendor || !(vendor.role === "admin" || vendor.is_admin)) {
+    return <Navigate to="/login" replace />;
+  }
+  return <AdminLayout>{children}</AdminLayout>;
+};
+
+
 function App() {
+  const location = useLocation();
   const { vendor, loading } = useAuth();
 
   const ProtectedRoute = ({ children }) => {
@@ -46,7 +67,7 @@ function App() {
   };
 
   return (
-    <Routes>
+    <Routes location={location}>
 
       {/* PUBLIC ROUTES */}
       <Route
@@ -56,6 +77,7 @@ function App() {
             <PublicHeader />
             <HomePage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -67,6 +89,7 @@ function App() {
             <PublicHeader />
             <AboutPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -78,6 +101,7 @@ function App() {
             <PublicHeader />
             <FeaturesPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -89,6 +113,7 @@ function App() {
             <PublicHeader />
             <ContactPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -100,6 +125,7 @@ function App() {
             <PublicHeader />
             <FAQPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -111,6 +137,7 @@ function App() {
             <PublicHeader />
             <PrivacyPolicyPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -122,6 +149,7 @@ function App() {
             <PublicHeader />
             <TermsPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -134,6 +162,7 @@ function App() {
             <PublicHeader />
             <RegisterClosedPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -158,6 +187,7 @@ function App() {
             <PublicHeader />
             <LoginPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -169,6 +199,7 @@ function App() {
             <PublicHeader />
             <RegisterPage />
             <PublicFooter />
+            <ScrollToTop />
           </>
         }
       />
@@ -245,6 +276,34 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route
+        path="/admin"
+        element={
+          <AdminProtectedRoute>
+            <AdminDashboardPage />
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/vendors"
+        element={
+          <AdminProtectedRoute>
+            <VendorApprovalsPage />
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/riders"
+        element={
+          <AdminProtectedRoute>
+            <RiderApprovalsPage />
+          </AdminProtectedRoute>
+        }
+      />
+
 
       {/* 404 PAGE */}
       <Route

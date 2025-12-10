@@ -2,6 +2,15 @@
 import React, { useState } from "react";
 import "./ContactPage.css";
 
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaClock,
+  FaUser,
+  FaRegEnvelope,
+} from "react-icons/fa";
+
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -15,12 +24,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page fade-in">
 
       {/* HEADER */}
       <div className="contact-header">
-        <h1>Contact Us</h1>
-        <p>We're here to help! Contact GAUSS Vendor Support anytime.</p>
+        <h1>Contact GAUSS Support</h1>
+        <p>
+          Our vendor support team is available to assist you with anything you need.
+        </p>
       </div>
 
       {/* CONTACT GRID */}
@@ -29,56 +40,88 @@ export default function ContactPage() {
         {/* FORM SECTION */}
         <div className="contact-form-box">
           <h2>Send us a message</h2>
+
           <form onSubmit={handleSubmit} className="contact-form">
 
-            <label>Your Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your full name"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
+            {/* NAME FIELD */}
+            <div className="input-wrap">
+              <FaUser className="field-icon" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <label>Your Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
+            {/* EMAIL FIELD */}
+            <div className="input-wrap">
+              <FaRegEnvelope className="field-icon" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <label>Your Message</label>
-            <textarea
-              name="message"
-              placeholder="Write your message..."
-              value={form.message}
-              onChange={handleChange}
-              required
-            />
+            {/* MESSAGE FIELD (icon inside top-left corner) */}
+            <div className="textarea-wrap">
+              <textarea
+                name="message"
+                placeholder="Write your message..."
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
             <button type="submit" className="contact-btn">
-              Submit
+              Send Message
             </button>
           </form>
         </div>
 
-        {/* CONTACT INFO */}
+        {/* CONTACT INFO SECTION */}
         <div className="contact-info">
-          <h2>Vendor Support</h2>
 
-          <p><strong>Email:</strong> support@gaussapp.com</p>
-          <p><strong>Phone:</strong> +234 906 548 8271</p>
+          <div className="info-card">
+            <FaEnvelope className="info-icon" />
+            <div>
+              <h3>Email Support</h3>
+              <p>support@gaussapp.com</p>
+            </div>
+          </div>
 
-          <h3>Office Address</h3>
-          <p>GAUSS HQ, Abuja, Nigeria 🌍</p>
+          <div className="info-card">
+            <FaPhoneAlt className="info-icon" />
+            <div>
+              <h3>Phone Support</h3>
+              <p>+234 906 548 8271</p>
+            </div>
+          </div>
 
-          <h3>Working Hours</h3>
-          <p>Monday - Friday: 9:00am - 6:00pm</p>
-          <p>Saturday: 10:00am - 4:00pm</p>
+          <div className="info-card">
+            <FaMapMarkerAlt className="info-icon" />
+            <div>
+              <h3>Office Address</h3>
+              <p>GAUSS Headquarters, Abuja, Nigeria</p>
+            </div>
+          </div>
+
+          <div className="info-card">
+            <FaClock className="info-icon" />
+            <div>
+              <h3>Working Hours</h3>
+              <p>Mon–Fri: 9:00am – 6:00pm</p>
+              <p>Sat: 10:00am – 4:00pm</p>
+            </div>
+          </div>
+
         </div>
 
       </div>

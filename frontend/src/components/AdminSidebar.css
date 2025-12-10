@@ -1,0 +1,55 @@
+/* AdminSidebar.css */
+.admin-sidebar {
+  width: 220px;
+  background: #0b1220;
+  color: #fff;
+  min-height: 100vh;
+  padding: 18px 10px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width .22s;
+}
+
+.admin-sidebar.collapsed { width: 72px; }
+
+.as-top { padding: 6px 10px; margin-bottom: 12px; }
+
+.as-brand { display:flex; align-items:center; gap:12px; }
+.as-logo {
+  width:44px;height:44px;border-radius:10px;
+  background:#ff4d4f;display:flex;align-items:center;justify-content:center;font-weight:800;
+}
+.as-name { font-weight:700; font-size:16px; }
+
+.as-menu { margin-top: 8px; display:flex;flex-direction:column; gap:6px; }
+
+.as-item {
+  display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;
+  color: #cbd5e1; text-decoration:none; font-weight:600;
+}
+.as-item:hover { background: rgba(255,255,255,0.04); color:#fff; }
+.as-item.active { background: rgba(255,255,255,0.06); color:#fff; }
+
+.as-item-icon { width: 28px; text-align:center; color:#ffb3b3; }
+
+.as-bottom { margin-top:auto; padding: 10px; }
+.as-logout {
+  width:100%; padding:10px; border-radius:8px; border:none; cursor:pointer;
+  background:#ff4d4f; color:#fff; font-weight:700;
+}
+
+/* adjust main area when sidebar fixed */
+.admin-layout .admin-main {
+  margin-left: 220px;
+  transition: margin-left .22s;
+}
+.admin-layout.collapsed .admin-main { margin-left: 72px; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .admin-sidebar { position: fixed; z-index: 80; transform: translateX(-100%); }
+  .admin-layout.show-sidebar .admin-sidebar { transform: translateX(0); }
+  .admin-layout .admin-main { margin-left: 0; }
+}

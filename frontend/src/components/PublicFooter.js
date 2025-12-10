@@ -1,35 +1,43 @@
 // src/components/PublicFooter.js
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./PublicFooter.css";
 import appstore from "../assets/appstore.svg";
 import playstore from "../assets/playstore.svg";
 
 export default function PublicFooter() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="public-footer">
       <div className="pf-container">
-        {/* Column 1 */}
-        <div className="pf-col">
+
+        {/* BRAND SECTION */}
+        <div className="pf-col pf-brand">
           <h3 className="pf-title">GAUSS Vendor App</h3>
           <p className="pf-desc">
-            Manage your business, products, orders, and analytics easily.
+            Manage your business, track orders, upload products, and monitor analytics — all in one platform.
           </p>
+
           <div className="pf-stores">
-            <img src={appstore} alt="App Store" className="pf-store-icon" />
-            <img src={playstore} alt="Play Store" className="pf-store-icon" />
+            <a href="#">
+              <img src={appstore} alt="App Store" className="pf-store-icon" />
+            </a>
+            <a href="#">
+              <img src={playstore} alt="Play Store" className="pf-store-icon" />
+            </a>
           </div>
         </div>
 
-        {/* Column 2 */}
+        {/* COMPANY LINKS */}
         <div className="pf-col">
           <h4 className="pf-heading">Company</h4>
-          <Link to="/about" className="pf-link">About</Link>
+          <Link to="/about" className="pf-link">About Us</Link>
           <Link to="/features" className="pf-link">Features</Link>
           <Link to="/contact" className="pf-link">Contact</Link>
         </div>
 
-        {/* Column 3 */}
+        {/* SUPPORT LINKS */}
         <div className="pf-col">
           <h4 className="pf-heading">Support</h4>
           <Link to="/faq" className="pf-link">FAQs</Link>
@@ -39,7 +47,7 @@ export default function PublicFooter() {
       </div>
 
       <div className="pf-bottom">
-        © {new Date().getFullYear()} GAUSS Vendor App — All rights reserved.
+        © {year} GAUSS Vendor App — All rights reserved.
       </div>
     </footer>
   );

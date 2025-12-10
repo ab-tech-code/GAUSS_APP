@@ -1,82 +1,137 @@
-/* src/components/PublicFooter.css */
+/* -----------------------
+   COLOR VARIABLES
+--------------------------*/
+:root {
+  --primary-red: #ff4d4f;
+  --black: #000000;
+  --light-grey: #f5f5f5;
+  --footer-bg: #000000;
+  --footer-text: #d1d5db;
+  --footer-muted: #9ca3af;
+}
 
+/* -----------------------
+   FOOTER WRAPPER
+--------------------------*/
 .public-footer {
-  background: #000000;
-  color: #ffffff;
-  padding: 40px 20px 20px;
+  background: var(--footer-bg);
+  padding: 60px 20px 30px;
+  color: var(--footer-text);
   margin-top: 40px;
 }
 
+/* -----------------------
+   MAIN CONTAINER
+--------------------------*/
 .pf-container {
   max-width: 1200px;
   margin: auto;
   display: flex;
-  gap: 40px;
+  gap: 50px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
+/* -----------------------
+   COLUMNS
+--------------------------*/
 .pf-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 250px;
+  gap: 12px;
+  min-width: 200px;
+}
+
+/* -----------------------
+   BRAND COLUMN
+--------------------------*/
+.pf-brand {
+  max-width: 330px;
 }
 
 .pf-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
+  color: #fff;
 }
 
 .pf-desc {
-  font-size: 14px;
-  color: #d1d5db;
+  font-size: 15px;
+  color: var(--footer-text);
+  line-height: 1.6;
 }
 
+/* -----------------------
+   APP STORE BUTTONS
+--------------------------*/
 .pf-stores {
   display: flex;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 14px;
+  margin-top: 18px;
 }
 
 .pf-store-icon {
-  width: 130px;
+  width: 140px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .pf-store-icon:hover {
-  opacity: 0.8;
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
+/* -----------------------
+   SECTION HEADINGS
+--------------------------*/
 .pf-heading {
   font-size: 18px;
-  margin-bottom: 5px;
+  color: #ffffff;
   font-weight: 600;
+  margin-bottom: 6px;
 }
 
+/* -----------------------
+   LINKS
+--------------------------*/
 .pf-link {
-  color: #d1d5db;
   text-decoration: none;
-  font-size: 14px;
+  color: var(--footer-text);
+  font-size: 15px;
+  transition: 0.2s ease;
 }
 
 .pf-link:hover {
-  color: #ff4d4f;
+  color: var(--primary-red);
+  transform: translateX(3px);
 }
 
+/* -----------------------
+   COPYRIGHT
+--------------------------*/
 .pf-bottom {
-  margin-top: 30px;
   text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
   font-size: 14px;
-  color: #9ca3af;
-  padding-top: 15px;
-  border-top: 1px solid #333;
+  color: var(--footer-muted);
+  border-top: 1px solid #222;
 }
 
-/* Mobile responsive */
+/* -----------------------
+   MOBILE RESPONSIVE
+--------------------------*/
 @media (max-width: 768px) {
+  .pf-container {
+    flex-direction: column;
+    gap: 35px;
+  }
+
   .pf-col {
     width: 100%;
+  }
+
+  .pf-title {
+    font-size: 22px;
   }
 }

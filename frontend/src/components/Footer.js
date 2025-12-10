@@ -1,40 +1,44 @@
 // src/components/Footer.js
-import React from 'react';
-import appstore from '../assets/appstore.svg';
-import playstore from '../assets/playstore.svg';
+import React from "react";
+import appstore from "../assets/appstore.svg";
+import playstore from "../assets/playstore.svg";
+import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="app-footer">
-      <div className="footer-left">
+    <footer className="dashboard-footer">
+      {/* LEFT */}
+      <div className="df-left">
         © {new Date().getFullYear()} GAUSS — Vendor Platform
       </div>
 
-      <div className="footer-center">
-        <a href="/terms" className="footer-link">Terms</a>
-        <a href="/privacy" className="footer-link">Privacy</a>
-        <a href="/help" className="footer-link">Help</a>
+      {/* CENTER LINKS */}
+      <div className="df-center">
+        <a href="/terms" className="df-link">Terms</a>
+        <a href="/privacy-policy" className="df-link">Privacy</a>
+        <a href="/help" className="df-link">Help</a>
       </div>
 
-      <div className="footer-right">
+      {/* RIGHT SIDE — STORE BUTTONS */}
+      <div className="df-right">
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          className="store-link"
+          className="df-store"
         >
-          <img src={playstore} alt="Download on Play Store" />
-          <span>Android App</span>
+          <img src={playstore} alt="Play Store" className="df-store-icon" />
+          <span>Android</span>
         </a>
 
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          className="store-link"
+          className="df-store"
         >
-          <img src={appstore} alt="Download on App Store" />
-          <span>iOS App</span>
+          <img src={appstore} alt="App Store" className="df-store-icon" />
+          <span>iOS</span>
         </a>
       </div>
     </footer>

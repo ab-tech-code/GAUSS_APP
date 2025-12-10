@@ -23,7 +23,7 @@ export default function RegisterClosedPage() {
         </p>
 
         <a
-          href="https://wa.me/2348100000000"
+          href="https://wa.me/2349065488271"
           target="_blank"
           rel="noopener noreferrer"
           className="closed-btn"

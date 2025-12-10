@@ -9,7 +9,7 @@ export default function Header({ collapsed, toggleSidebar }) {
         <span></span>
       </div>
 
-      <h3>GAUSS Vendor Panel</h3>
+      <h3>GAUSS</h3>
     </header>
   );
 }

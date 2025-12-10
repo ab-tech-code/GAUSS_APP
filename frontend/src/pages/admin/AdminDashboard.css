@@ -1,0 +1,32 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+  padding: 22px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-dashboard h2 { font-size: 22px; margin-bottom: 16px; }
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.ad-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: rgba(2,6,23,0.04) 0 6px 16px;
+}
+
+.ad-card-title { color: #666; font-weight:700; margin-bottom:8px; }
+.ad-card-value { font-size: 22px; font-weight:900; color:#111; }
+
+.ad-card.wide { grid-column: span 2; }
+
+/* responsive */
+@media (max-width: 768px) {
+  .admin-dashboard { padding: 14px; }
+  .ad-card-value { font-size: 18px; }
+}

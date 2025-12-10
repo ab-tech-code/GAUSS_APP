@@ -1,0 +1,6 @@
+/* RiderApprovalsPage.css */
+.rider-list { display:grid; gap:12px; }
+.rider-row { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.rider-name { font-weight:700; font-size:16px; }
+.rider-phone { color:#666; font-size:13px; }
+.rider-actions { display:flex; gap:8px; }

@@ -1,24 +1,27 @@
-/* src/components/PublicHeader.css */
-
+/* HEADER BASE */
 .public-header {
   width: 100%;
   background: #ffffff;
   border-bottom: 1px solid #eee;
-  padding: 10px 16px;
+  padding: 12px 16px;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 200;
 }
 
+/* CONTAINER */
 .ph-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1300px; /* Increased to prevent crowding */
+  width: 100%;
+  margin: auto;
   display: flex;
-  gap: 12px;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+  overflow: hidden; /* Prevent accidental horizontal scroll */
 }
 
+/* LOGO */
 .ph-logo-box {
   display: flex;
   align-items: center;
@@ -27,27 +30,36 @@
 }
 
 .ph-logo {
-  width: 40px;
-  height: 40px;
+  width: 42px;
 }
 
 .ph-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  color: #111827;
+  color: #000000;
 }
 
+/* --- DESKTOP NAVIGATION --- */
 .ph-nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 18px;   /* Reduced spacing */
+  flex-wrap: wrap;  /* 🔥 MAIN FIX: prevents horizontal scroll */
+  max-width: 100%;
 }
 
+/* NAV LINKS */
 .ph-link {
   text-decoration: none;
-  color: #374151;
+  color: #333;
   font-weight: 500;
-  position: relative;
+  font-size: 15px;
+  white-space: nowrap; /* keep each link on one line */
+  transition: 0.2s;
+}
+
+.ph-link:hover {
+  color: #ff4d4f;
 }
 
 .ph-link.active {
@@ -55,27 +67,110 @@
   font-weight: 700;
 }
 
+/* BUTTONS */
 .ph-btn {
   padding: 8px 16px;
-  border-radius: 10px;
-  text-decoration: none;
+  border-radius: 8px;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+  white-space: nowrap;
 }
 
 .ph-login {
-  border: 2px solid #111827;
-  color: #111827;
+  border: 2px solid #000;
+  color: #000;
+}
+
+.ph-login:hover {
+  background: #000;
+  color: #fff;
 }
 
 .ph-register {
   background: #ff4d4f;
   color: #fff;
-  border: none;
 }
 
+.ph-register:hover {
+  opacity: 0.9;
+}
+
+.ph-vendor {
+  background: #000;
+  color: #fff;
+}
+
+.ph-vendor:hover {
+  opacity: 0.9;
+}
+
+/* HAMBURGER (Mobile) */
+.ph-hamburger {
+  width: 32px;
+  height: 28px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.ph-hamburger .bar {
+  height: 3px;
+  background: #000;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.ph-hamburger.open .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.ph-hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.ph-hamburger.open .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* --- MOBILE NAVIGATION --- */
 @media (max-width: 768px) {
-  .ph-nav {
-    display: none; 
+  .ph-hamburger {
+    display: flex;
   }
+
+  .ph-nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 16px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    transform: translateY(-350px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+
+  .ph-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+/* GLOBAL FIX - Prevent horizontal overflow on entire site */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent any child element from growing wider than screen */
+* {
+  box-sizing: border-box;
 }

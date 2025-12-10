@@ -1,0 +1,86 @@
+/* MAIN FOOTER */
+.dashboard-footer {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #222;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* LEFT SIDE */
+.df-left {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* CENTER LINKS */
+.df-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.df-link {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.df-link:hover {
+  color: #ff4d4f;
+}
+
+/* RIGHT STORE BUTTONS */
+.df-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.df-store {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background: #111;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.df-store-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.df-store span {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.df-store:hover {
+  background: #ff4d4f;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+  .dashboard-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 24px 12px;
+  }
+
+  .df-center {
+    justify-content: center;
+  }
+
+  .df-right {
+    justify-content: center;
+  }
+}

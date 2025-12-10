@@ -1,0 +1,6 @@
+/* VendorApprovalsPage.css */
+.vendor-list { display:grid; gap:12px; }
+.vendor-row { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.vendor-name { font-weight:700; font-size:16px; }
+.vendor-email { color:#666; font-size:13px; }
+.vendor-actions { display:flex; gap:8px; }
